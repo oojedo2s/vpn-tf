@@ -15,6 +15,11 @@ resource "google_compute_firewall" "allow-iap-traffic" {
     protocol = "udp"
   }
 
+  allow {
+    ports = [22, 80]
+    protocol = "tcp"
+  }
+  
   description = "Allows TCP connections from IAP to any instance on the network using port 22."
   direction   = "INGRESS"
   disabled    = false
